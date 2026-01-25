@@ -13,17 +13,19 @@
             scroll-behavior: smooth;
         }
 
-        /* Hero Slider Responsif */
+        /* Hero Slider dengan Rasio Tetap (Aspect Ratio) */
         .slider-container {
             position: relative;
             overflow: hidden;
-            height: 50vh; /* Tinggi lebih pendek untuk mobile */
-            min-height: 350px;
+            width: 100%;
+            /* Menggunakan rasio 1920x800 (Tinggi = 41.66% dari Lebar) */
+            aspect-ratio: 1920 / 800;
         }
 
-        @media (min-width: 768px) {
+        /* Fallback untuk browser yang belum mendukung aspect-ratio */
+        @supports not (aspect-ratio: 1920 / 800) {
             .slider-container {
-                height: 78vh; /* Tinggi asli untuk desktop */
+                padding-top: 41.66%; 
             }
         }
 
@@ -39,8 +41,8 @@
         .slide.active { opacity: 1; }
 
         .slider-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 2px;
             background: rgba(255,255,255,0.4);
             cursor: pointer;
@@ -120,11 +122,10 @@
 
     <!-- Hero Slider -->
     <section id="hero" class="slider-container bg-black">
-        <!-- Menggunakan bg-center untuk memastikan objek motor tetap di tengah pada mobile -->
         <div class="slide active" style="background-image: url('https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,pr-true,f-auto/uploads/product-draft/lifestyle/life-style-banner-2-1920x800pxl-beat-sporty-copy-24072025-010546.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
         <div class="slide" style="background-image: url('https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,pr-true,f-auto/uploads/product-draft/lifestyle/lifestyle-banner-2-1920x800-copy-13112025-030941.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
         <div class="slide" style="background-image: url('https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,pr-true,f-auto/uploads/product-draft/lifestyle/lo-1920x800pxl-1-11092025-101344.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10" id="slider-dots"></div>
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="slider-dots"></div>
     </section>
 
     <!-- Section Product -->
