@@ -137,10 +137,11 @@
     <nav class="bg-white border-b sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-3">
-                    <div class="flex flex-col">
-                        <span class="text-2xl font-bold text-red-600 leading-none">MOTO<span class="text-gray-800">SHOP</span></span>
-                        <span class="text-[10px] text-gray-500 font-medium uppercase tracking-tighter">Mitra Pemasaran Nusantara Sakti</span>
+                <div class="flex items-center gap-4">
+                    <!-- Logo Utama -->
+                    <img src="https://i.postimg.cc/HWt5Txgr/logohondaa.png" alt="Logo Honda" class="h-8 w-auto object-contain">
+                    <div class="flex flex-col border-l pl-4 border-gray-200">
+                        <span class="text-xs text-gray-500 font-bold uppercase tracking-tight">Resmi dari Dealer Nusantara Sakti</span>
                     </div>
                 </div>
                 <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wider text-gray-600">
@@ -178,7 +179,6 @@
         <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 
         <div class="text-center mt-16" id="action-button-container">
-            <!-- Tombol dinamis akan di-render di sini -->
             <button id="load-more" class="px-10 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg">
                 LIHAT MOTOR LAINNYA
             </button>
@@ -246,7 +246,7 @@
                 id: 1, 
                 name: "BeAT", 
                 category: "Matic", 
-                price: "Rp 27.350.000 (OTR Jakarta)", 
+                price: "Rp 18.980.000 (OTR Jakarta)", 
                 homepageImg: "/motorbeatdepan.webp?auto=format&fit=crop&q=80&w=800",
                 popupImg: "/motorbeat.jpeg?auto=format&fit=crop&q=80&w=1200",
                 posterImg: "/motorbeatbannerpopup.webp?auto=format&fit=crop&q=80&w=1600",
@@ -256,7 +256,7 @@
                 id: 2, 
                 name: "ADV", 
                 category: "Matic", 
-                price: "Rp 21.975.000", 
+                price: "Rp 132.265.000 (OTR Jakarta)", 
                 homepageImg: "/motoradvdepan.webp?auto=format&fit=crop&q=80&w=800", 
                 popupImg: "/motoradv.png?auto=format&fit=crop&q=80&w=1200",
                 posterImg: "/motoradvbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
@@ -266,7 +266,7 @@
                 id: 3, 
                 name: "VARIO 160", 
                 category: "Matic", 
-                price: "Rp 37.280.000", 
+                price: "Rp 28.100.000 (OTR Jakarta)", 
                 homepageImg: "/motorvario160depan.webp?auto=format&fit=crop&q=80&w=800", 
                 popupImg: "/motorvario160.png?auto=format&fit=crop&q=80&w=1200",
                 posterImg: "/vario160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
@@ -276,7 +276,7 @@
                 id: 4, 
                 name: "SCOOPY", 
                 category: "Matic", 
-                price: "Rp 32.670.000", 
+                price: "Rp 22.876.000 (OTR Jakarta)", 
                 homepageImg: "/motorscoopydepan.webp?auto=format&fit=crop&q=80&w=800", 
                 popupImg: "/motorscoopy.png?auto=format&fit=crop&get=80&w=1200",
                 posterImg: "/motorscoopybannerdepan.webp?auto=format&fit=crop&q=80&w=1600", 
@@ -286,7 +286,7 @@
                 id: 5, 
                 name: "PCX 160", 
                 category: "Matic", 
-                price: "Rp 25.180.000", 
+                price: "Rp 34.350.000 (OTR Jakarta)", 
                 homepageImg: "/motorpcxdepan.webp?auto=format&fit=crop&q=80&w=800", 
                 popupImg: "/motorpcx.png?auto=format&fit=crop&q=80&w=1200",
                 posterImg: "/motorpcxbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
@@ -296,7 +296,7 @@
                 id: 6, 
                 name: "STYLO 160", 
                 category: "Matic", 
-                price: "Rp 33.910.000", 
+                price: "Rp 29.170.000 (OTR Jakarta)", 
                 homepageImg: "/stylo160depan.webp?auto=format&fit=crop&q=80&w=800", 
                 popupImg: "stylo160.png?auto=format&fit=crop&q=80&w=1200",
                 posterImg: "/stylo160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
@@ -359,7 +359,6 @@
                 </div>
             `).join('');
 
-            // Logika Tombol Dinamis
             if (visibleCount < filtered.length) {
                 actionContainer.innerHTML = `
                     <button id="load-more" onclick="loadMoreProducts()" class="px-10 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg uppercase tracking-wider">
