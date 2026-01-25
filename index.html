@@ -33,7 +33,7 @@
         .slider-dot {
             width: 10px;
             height: 10px;
-            border-radius: 2px; /* Less rounded dot */
+            border-radius: 2px;
             background: rgba(255,255,255,0.4);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -188,12 +188,66 @@
 
     <script>
         const allProducts = [
-            { id: 1, name: "BEAT", category: "Matic", price: "Rp 27.350.000 (OTR Jakarta)", posterImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600", mainImg: "/motorbeat.jpeg?auto=format&fit=crop&q=80&w=800", desc: "Mesin 160cc tangguh dengan desain premium untuk performa maksimal di perkotaan." },
-            { id: 2, name: "SCOOPY", category: "Matic", price: "Rp 21.975.000", posterImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=800", desc: "Ikon fashion retro modern dengan Smart Key dan fungsionalitas pengisian daya USB." },
-            { id: 3, name: "CBR 150R", category: "Sport", price: "Rp 37.280.000", posterImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800", desc: "Total Control. Motor sport fairing dengan handling yang presisi." },
-            { id: 4, name: "PCX 160", category: "Matic", price: "Rp 32.670.000", posterImg: "https://images.unsplash.com/photo-1618415727390-50f14644a8ae?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1618415727390-50f14644a8ae?auto=format&fit=crop&q=80&w=800", desc: "Kemewahan berkendara dengan teknologi mesin eSP+ tercanggih." },
-            { id: 5, name: "SUPRA GTR", category: "Cub", price: "Rp 25.180.000", posterImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800", desc: "Sport Cub dengan performa responsif." },
-            { id: 6, name: "CB150X", category: "Sport", price: "Rp 33.910.000", posterImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=800", desc: "Partner petualangan sejati." }
+            { 
+                id: 1, 
+                name: "VARIO 160", 
+                category: "Matic", 
+                price: "Rp 27.350.000", 
+                homepageImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800", // Foto Lifestyle
+                popupImg: "https://images.unsplash.com/photo-1622279457486-62dcc4a4bd13?auto=format&fit=crop&q=80&w=1200", // Foto Detail/Bersih
+                posterImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600",
+                desc: "Mesin 160cc tangguh dengan desain premium untuk performa maksimal di perkotaan." 
+            },
+            { 
+                id: 2, 
+                name: "SCOOPY", 
+                category: "Matic", 
+                price: "Rp 21.975.000", 
+                homepageImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Ikon fashion retro modern dengan Smart Key dan fungsionalitas pengisian daya USB." 
+            },
+            { 
+                id: 3, 
+                name: "CBR 150R", 
+                category: "Sport", 
+                price: "Rp 37.280.000", 
+                homepageImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "https://images.unsplash.com/photo-1614165933355-63529d8995a9?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Total Control. Motor sport fairing dengan handling yang presisi." 
+            },
+            { 
+                id: 4, 
+                name: "PCX 160", 
+                category: "Matic", 
+                price: "Rp 32.670.000", 
+                homepageImg: "https://images.unsplash.com/photo-1618415727390-50f14644a8ae?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "https://images.unsplash.com/photo-1615172282427-9a57ef2d142e?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "https://images.unsplash.com/photo-1618415727390-50f14644a8ae?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Kemewahan berkendara dengan teknologi mesin eSP+ tercanggih." 
+            },
+            { 
+                id: 5, 
+                name: "SUPRA GTR", 
+                category: "Cub", 
+                price: "Rp 25.180.000", 
+                homepageImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "https://images.unsplash.com/photo-1622185135505-2d795003994a?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Sport Cub dengan performa responsif." 
+            },
+            { 
+                id: 6, 
+                name: "CB150X", 
+                category: "Sport", 
+                price: "Rp 33.910.000", 
+                homepageImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Partner petualangan sejati." 
+            }
         ];
 
         const regions = ["Aceh", "Bali", "Bangka Belitung", "Bengkulu", "DIY", "Gorontalo", "Jakarta", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Timur", "Kalimantan Utara", "Kalimantan Tengah", "Kalimantan Barat", "Maluku", "Maluku Utara", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Utara", "Sulawesi Tenggara", "Sumatera Selatan", "Sumatera Utara"];
@@ -241,7 +295,7 @@
             
             grid.innerHTML = toShow.map(p => `
                 <div class="bg-white rounded-lg overflow-hidden group border">
-                    <img src="${p.mainImg}" class="w-full h-64 object-cover group-hover:scale-105 transition">
+                    <img src="${p.homepageImg}" class="w-full h-64 object-cover group-hover:scale-105 transition">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold uppercase tracking-tight">${p.name}</h3>
                         <p class="text-red-600 font-bold mb-4 text-sm">${p.price}</p>
@@ -280,9 +334,9 @@
                             <div class="h-1 w-16 bg-gray-200 mx-auto mt-8"></div>
                         </div>
 
-                        <!-- 3. RESPONSIVE FULL WIDTH IMAGE (Main Product) -->
+                        <!-- 3. RESPONSIVE FULL WIDTH IMAGE (Berbeda dengan Homepage) -->
                         <div class="mb-16">
-                            <img src="${p.mainImg}" class="responsive-product-img rounded-lg border mx-auto">
+                            <img src="${p.popupImg}" class="responsive-product-img rounded-lg border mx-auto">
                         </div>
 
                         <!-- Deskripsi -->
