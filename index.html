@@ -92,6 +92,11 @@
             color: white;
             box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3);
         }
+
+        .color-dot.active {
+            outline: 3px solid #ef4444;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -207,9 +212,49 @@
 
     <script>
         const allProducts = [
-            { id: 1, name: "VARIO 160", category: "Matic", type: "Premium Matic", price: "Rp 27.350.000", posterImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800", desc: "Mesin 160cc tangguh dengan desain premium untuk performa maksimal di perkotaan." },
-            { id: 2, name: "SCOOPY", category: "Matic", type: "Fashion Matic", price: "Rp 21.975.000", posterImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=800", desc: "Ikon fashion retro modern dengan Smart Key dan fungsionalitas pengisian daya USB." },
-            { id: 3, name: "CBR 150R", category: "Sport", type: "Sport Performance", price: "Rp 37.280.000", posterImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800", desc: "Total Control. Motor sport fairing dengan handling yang presisi dan performa tinggi." },
+            { 
+                id: 1, 
+                name: "VARIO 160", 
+                category: "Matic", 
+                type: "Premium Matic", 
+                price: "Rp 27.350.000", 
+                posterImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600", 
+                mainImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800", 
+                desc: "Mesin 160cc tangguh dengan desain premium untuk performa maksimal di perkotaan.",
+                variants: [
+                    { name: "Grande Matte White", color: "#f8f9fa", img: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800" },
+                    { name: "Active Matte Red", color: "#991b1b", img: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600" },
+                    { name: "Active Matte Black", color: "#1a1a1a", img: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?auto=format&fit=crop&q=80&w=1600" }
+                ]
+            },
+            { 
+                id: 2, 
+                name: "SCOOPY", 
+                category: "Matic", 
+                type: "Fashion Matic", 
+                price: "Rp 21.975.000", 
+                posterImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=1600", 
+                mainImg: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=800", 
+                desc: "Ikon fashion retro modern dengan Smart Key dan fungsionalitas pengisian daya USB.",
+                variants: [
+                    { name: "Prestige White", color: "#ffffff", img: "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=800" },
+                    { name: "Stylish Brown", color: "#5d4037", img: "https://images.unsplash.com/photo-1618415727390-50f14644a8ae?auto=format&fit=crop&q=80&w=800" }
+                ]
+            },
+            { 
+                id: 3, 
+                name: "CBR 150R", 
+                category: "Sport", 
+                type: "Sport Performance", 
+                price: "Rp 37.280.000", 
+                posterImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1600", 
+                mainImg: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800", 
+                desc: "Total Control. Motor sport fairing dengan handling yang presisi dan performa tinggi.",
+                variants: [
+                    { name: "Victory Red Black", color: "#ef4444", img: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=800" },
+                    { name: "Dominator Matte Black", color: "#111827", img: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600" }
+                ]
+            },
             { id: 4, name: "PCX 160", category: "Matic", type: "Luxurious Matic", price: "Rp 32.670.000", posterImg: "https://images.unsplash.com/photo-1618415727390-50f14644a8ae?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1618415727390-50f14644a8ae?auto=format&fit=crop&q=80&w=800", desc: "Kemewahan berkendara dengan teknologi mesin eSP+ tercanggih." },
             { id: 5, name: "SUPRA GTR 150", category: "Cub", type: "Sport Cub", price: "Rp 25.180.000", posterImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800", desc: "Perpaduan performa motor sport dalam bentuk motor bebek untuk akselerasi responsif." },
             { id: 6, name: "CB150X", category: "Sport", type: "Adventure Sport", price: "Rp 33.910.000", posterImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=1600", mainImg: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=800", desc: "Partner petualangan sejati dengan posisi berkendara tegak yang nyaman." },
@@ -313,11 +358,29 @@
             <div class="bg-gray-100 p-4 text-center rounded-xl text-sm font-bold hover:bg-red-600 hover:text-white transition-all cursor-default uppercase">${r}</div>
         `).join('');
 
-        // --- MODAL ---
+        // --- MODAL & COLOR PICKER ---
+        function changeVariant(imgUrl, variantName, el) {
+            // Ubah gambar utama di modal
+            const mainImg = document.getElementById('modal-main-image');
+            mainImg.src = imgUrl;
+
+            // Update nama varian terpilih
+            document.getElementById('selected-variant-name').innerText = variantName;
+
+            // Update UI Dot Aktif
+            document.querySelectorAll('.color-dot').forEach(dot => dot.classList.remove('active'));
+            el.classList.add('active');
+        }
+
         function openModal(id) {
             const p = allProducts.find(x => x.id === id);
             const modal = document.getElementById('detail-modal');
             const content = document.getElementById('modal-content');
+
+            // Cek jika produk memiliki varian, jika tidak buat default
+            const productVariants = p.variants || [
+                { name: "Standard Color", color: "#6b7280", img: p.mainImg }
+            ];
 
             content.innerHTML = `
                 <div class="w-full h-[300px] sm:h-[450px] relative">
@@ -330,13 +393,32 @@
                 </div>
                 <div class="p-8 sm:p-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div class="bg-gray-50 rounded-[40px] p-8 flex items-center justify-center border border-gray-100 shadow-inner h-[400px] sm:h-[550px]">
-                        <img src="${p.mainImg}" class="max-w-full max-h-full object-contain">
+                        <img id="modal-main-image" src="${p.mainImg}" class="max-w-full max-h-full object-contain transition-all duration-500">
                     </div>
                     <div class="flex flex-col justify-center">
-                        <div class="mb-10">
+                        <div class="mb-8">
                             <span class="text-gray-400 font-bold uppercase text-sm tracking-widest">Harga Estimasi OTR</span>
                             <div class="text-5xl sm:text-6xl font-black text-red-600 mt-2">${p.price}</div>
                         </div>
+
+                        <!-- VARIATION SECTION -->
+                        <div class="mb-10 p-6 bg-white rounded-3xl border border-gray-100 shadow-sm">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-bold text-xs text-gray-400 uppercase tracking-widest">Pilihan Warna</h4>
+                                <span id="selected-variant-name" class="text-sm font-bold text-gray-900">${productVariants[0].name}</span>
+                            </div>
+                            <div class="flex flex-wrap gap-4">
+                                ${productVariants.map((v, i) => `
+                                    <button 
+                                        onclick="changeVariant('${v.img}', '${v.name}', this)" 
+                                        class="color-dot w-10 h-10 rounded-full border-2 border-gray-200 shadow-sm transition-all ${i === 0 ? 'active' : ''}" 
+                                        style="background-color: ${v.color}"
+                                        title="${v.name}">
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
                         <div class="p-8 bg-gray-50 rounded-3xl border border-gray-100 mb-10">
                             <h4 class="font-bold text-xs mb-4 text-gray-400 uppercase tracking-widest">Detail Unit</h4>
                             <p class="text-gray-600 text-xl leading-relaxed">${p.desc}</p>
