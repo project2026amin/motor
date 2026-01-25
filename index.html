@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor UnOfficial - Mitra NSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Slider dengan Rasio Tetap (Aspect Ratio) */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            /* Menggunakan rasio 1920x800 (Tinggi = 41.66% dari Lebar) */
+            aspect-ratio: 1920 / 800;
+        }
+
+        /* Fallback untuk browser yang belum mendukung aspect-ratio */
+        @supports not (aspect-ratio: 1920 / 800) {
+            .slider-container {
+                padding-top: 41.66%; 
+            }
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .slide.active { opacity: 1; }
+
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .slider-dot.active {
+            background: #ef4444;
+            transform: scale(1.2);
+        }
+
+        /* Floating WA */
+        .floating-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .wa-label {
+            background: white;
+            color: #1f2937;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            white-space: nowrap;
+            animation: fadeInRight 0.5s ease-out;
+        }
+
+        .wa-icon-box {
+            background: #22c55e;
+            padding: 14px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+            animation: bounce 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Fullscreen Modal */
+        #detail-modal {
+            background: white;
+            z-index: 100;
+        }
+        .modal-content-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background: white;
+        }
+
+        /* Responsive Product Image */
+        .responsive-product-img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .tab-btn.active {
+            background-color: #ef4444;
+            color: white;
+            border-color: #ef4444;
+        }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Navigasi -->
+    <nav class="bg-white border-b sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold text-red-600 leading-none">MOTO<span class="text-gray-800">SHOP</span></span>
+                        <span class="text-[10px] text-gray-500 font-medium uppercase tracking-tighter">Mitra Pemasaran Nusantara Sakti</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wider text-gray-600">
+                    <a href="#hero" class="hover:text-red-600 transition">Beranda</a>
+                    <a href="#product" class="hover:text-red-600 transition">Produk</a>
+                    <a href="#map" class="hover:text-red-600 transition">Lokasi</a>
+                    <a href="#info-penting" class="hover:text-red-600 transition">Info Penting</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section id="hero" class="slider-container bg-black">
+        <div class="slide active" style="background-image: url('https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,pr-true,f-auto/uploads/product-draft/lifestyle/life-style-banner-2-1920x800pxl-beat-sporty-copy-24072025-010546.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
+        <div class="slide" style="background-image: url('https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,pr-true,f-auto/uploads/product-draft/lifestyle/lifestyle-banner-2-1920x800-copy-13112025-030941.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
+        <div class="slide" style="background-image: url('https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,pr-true,f-auto/uploads/product-draft/lifestyle/lo-1920x800pxl-1-11092025-101344.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="slider-dots"></div>
+    </section>
+
+    <!-- Section Product -->
+    <section id="product" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl font-extrabold text-gray-900 uppercase">Katalog Motor</h2>
+            <div class="h-1 w-20 bg-red-600 mx-auto mt-6"></div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button onclick="filterCategory('All')" class="tab-btn active px-6 py-2.5 rounded-md font-bold transition-all border text-sm">SEMUA</button>
+            <button onclick="filterCategory('Matic')" class="tab-btn px-6 py-2.5 rounded-md font-bold transition-all border text-sm">MATIC</button>
+            <button onclick="filterCategory('Sport')" class="tab-btn px-6 py-2.5 rounded-md font-bold transition-all border text-sm">SPORT</button>
+            <button onclick="filterCategory('Cub')" class="tab-btn px-6 py-2.5 rounded-md font-bold transition-all border text-sm">CUB</button>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+
+        <div class="text-center mt-16" id="action-button-container">
+            <!-- Tombol dinamis akan di-render di sini -->
+            <button id="load-more" class="px-10 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg">
+                LIHAT MOTOR LAINNYA
+            </button>
+        </div>
+    </section>
+
+    <!-- Section Map -->
+    <section id="map" class="py-20 bg-white border-y">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 uppercase">Wilayah Penjualan Kami</h2>
+            </div>
+            <div class="mb-8 rounded-lg overflow-hidden border">
+                <img src="/map.png" alt="Peta Indonesia" class="w-full h-full object-cover">
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3" id="region-grid"></div>
+        </div>
+    </section>
+
+    <!-- Section Informasi Penting -->
+    <section id="info-penting" class="py-20 bg-gray-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h3 class="text-xl font-bold mb-8 uppercase tracking-widest text-gray-300 border-b border-gray-800 pb-4 inline-block">Informasi Penting</h3>
+            <div class="space-y-4 text-gray-500 text-sm">
+                <p>Website ini bukan merupakan website resmi milik Nusantara Sakti Group.</p>
+                <p>Dikelola secara pribadi oleh pihak sales sebagai media informasi dan pemasaran.</p>
+                <p>Seluruh produk merupakan produk asli dari Nusantara Sakti Group.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-600 py-8 text-center text-xs border-t border-gray-900">
+        <p>&copy; 2024 MotoShop UnOfficial. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <!-- Floating WhatsApp dengan Teks -->
+    <a href="https://wa.me/628123456789" target="_blank" class="floating-wa group">
+        <div class="wa-label">Chat Sales Untuk Promo Hari Ini!</div>
+        <div class="wa-icon-box">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.333 11.887-11.889 11.887-2.018 0-3.992-.511-5.741-1.486l-6.142 1.61zM6.657 20.049c1.551.921 3.235 1.408 4.956 1.408 5.4 0 9.791-4.391 9.791-9.791 0-2.618-1.02-5.081-2.871-6.932s-4.314-2.871-6.932-2.871c-5.401 0-9.792 4.391-9.792 9.791 0 1.933.568 3.813 1.642 5.437l-.98 3.578 3.673-.963z"/></svg>
+        </div>
+    </a>
+
+    <!-- Fullscreen Modal -->
+    <div id="detail-modal" class="fixed inset-0 hidden overflow-hidden">
+        <div class="modal-content-container no-scrollbar">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="fixed top-6 right-6 text-gray-800 hover:text-red-600 z-[110] bg-white border rounded-lg p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const allProducts = [
+            { 
+                id: 1, 
+                name: "BeAT", 
+                category: "Matic", 
+                price: "Rp 27.350.000 (OTR Jakarta)", 
+                homepageImg: "/motorbeatdepan.webp?auto=format&fit=crop&q=80&w=800",
+                popupImg: "/motorbeat.jpeg?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/motorbeatbannerpopup.webp?auto=format&fit=crop&q=80&w=1600",
+                desc: "Mesin 160cc tangguh dengan desain premium untuk performa maksimal di perkotaan." 
+            },
+            { 
+                id: 2, 
+                name: "ADV", 
+                category: "Matic", 
+                price: "Rp 21.975.000", 
+                homepageImg: "/motoradvdepan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/motoradv.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/motoradvbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Ikon fashion retro modern dengan Smart Key dan fungsionalitas pengisian daya USB." 
+            },
+            { 
+                id: 3, 
+                name: "VARIO 160", 
+                category: "Matic", 
+                price: "Rp 37.280.000", 
+                homepageImg: "/motorvario160depan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/motorvario160.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/vario160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Total Control. Motor sport fairing dengan handling yang presisi." 
+            },
+            { 
+                id: 4, 
+                name: "SCOOPY", 
+                category: "Matic", 
+                price: "Rp 32.670.000", 
+                homepageImg: "/motorscoopydepan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/motorscoopy.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/motorscoopybannerdepan.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Kemewahan berkendara dengan teknologi mesin eSP+ tercanggih." 
+            },
+            { 
+                id: 5, 
+                name: "PCX 160", 
+                category: "Matic", 
+                price: "Rp 25.180.000", 
+                homepageImg: "/motorpcxdepan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/motorpcx.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/motorpcxbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Sport Cub dengan performa responsif." 
+            },
+            { 
+                id: 6, 
+                name: "STYLO 160", 
+                category: "Matic", 
+                price: "Rp 33.910.000", 
+                homepageImg: "/stylo160depan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "stylo160.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/stylo160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Partner petualangan sejati." 
+            }
+        ];
+
+        const regions = ["Aceh", "Bali", "Bangka Belitung", "Bengkulu", "DIY", "Gorontalo", "Jakarta", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Timur", "Kalimantan Utara", "Kalimantan Tengah", "Kalimantan Barat", "Maluku", "Maluku Utara", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Utara", "Sulawesi Tenggara", "Sumatera Selatan", "Sumatera Utara"];
+        let currentCategory = 'All';
+        let visibleCount = 3;
+
+        // Render Wilayah
+        document.getElementById('region-grid').innerHTML = regions.map(r => `<div class="border p-3 text-center rounded-lg text-xs font-bold uppercase hover:bg-red-600 hover:text-white transition cursor-default bg-white">${r}</div>`).join('');
+
+        // Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('slider-dots');
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = `slider-dot ${i === 0 ? 'active' : ''}`;
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        });
+
+        function goToSlide(i) {
+            slides[currentSlide].classList.remove('active');
+            document.querySelectorAll('.slider-dot')[currentSlide].classList.remove('active');
+            currentSlide = i;
+            slides[currentSlide].classList.add('active');
+            document.querySelectorAll('.slider-dot')[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => goToSlide((currentSlide + 1) % slides.length), 5000);
+
+        // Product Logic
+        function filterCategory(cat) {
+            currentCategory = cat;
+            visibleCount = 3;
+            renderProducts();
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.innerText.includes(cat.toUpperCase()) || (cat === 'All' && btn.innerText === 'SEMUA'));
+            });
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const actionContainer = document.getElementById('action-button-container');
+            const filtered = currentCategory === 'All' ? allProducts : allProducts.filter(p => p.category === currentCategory);
+            const toShow = filtered.slice(0, visibleCount);
+            
+            grid.innerHTML = toShow.map(p => `
+                <div class="bg-white rounded-lg overflow-hidden group border">
+                    <img src="${p.homepageImg}" class="w-full h-64 object-cover group-hover:scale-105 transition">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold uppercase tracking-tight">${p.name}</h3>
+                        <p class="text-red-600 font-bold mb-4 text-sm">${p.price}</p>
+                        <button onclick="openModal(${p.id})" class="w-full py-3 bg-gray-900 text-white font-bold rounded-md hover:bg-black transition-colors shadow-lg">LIHAT DETAIL</button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Logika Tombol Dinamis
+            if (visibleCount < filtered.length) {
+                actionContainer.innerHTML = `
+                    <button id="load-more" onclick="loadMoreProducts()" class="px-10 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg uppercase tracking-wider">
+                        LIHAT MOTOR LAINNYA
+                    </button>
+                `;
+            } else {
+                actionContainer.innerHTML = `
+                    <a href="https://wa.me/628123456789?text=Halo,%20saya%20ingin%20tanya%20mengenai%20katalog%20motor%20lainnya" 
+                       target="_blank" 
+                       class="inline-block px-10 py-4 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition shadow-lg uppercase tracking-wider">
+                       Tanya Produk Lainnya
+                    </a>
+                `;
+            }
+        }
+
+        function loadMoreProducts() {
+            visibleCount += 3;
+            renderProducts();
+        }
+
+        // Modal Logic
+        function openModal(id) {
+            const p = allProducts.find(x => x.id === id);
+            const modal = document.getElementById('detail-modal');
+
+            document.getElementById('modal-content').innerHTML = `
+                <div class="w-full h-[35vh] sm:h-[60vh] md:h-[70vh] border-b">
+                    <img src="${p.posterImg}" class="w-full h-full object-cover">
+                </div>
+
+                <div class="w-full bg-white">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-8 py-12">
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl sm:text-7xl font-black uppercase tracking-tighter text-gray-900">${p.name}</h2>
+                            <p class="text-red-600 text-2xl sm:text-4xl font-bold mt-2">${p.price}</p>
+                            <div class="h-1 w-16 bg-gray-200 mx-auto mt-8"></div>
+                        </div>
+
+                        <div class="mb-16">
+                            <img src="${p.popupImg}" class="responsive-product-img rounded-lg border mx-auto">
+                        </div>
+
+                        <div class="max-w-3xl mx-auto mb-16 px-4">
+                            <h4 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-6 text-center">Spesifikasi & Detail</h4>
+                            <p class="text-gray-700 text-lg leading-relaxed text-center font-medium italic">
+                                "${p.desc}"
+                            </p>
+                        </div>
+
+                        <div class="max-w-xl mx-auto pb-16">
+                            <a href="https://wa.me/628123456789?text=Halo,%20saya%20tertarik%20dengan%20promo%20${p.name}%20hari%20ini" 
+                               target="_blank" 
+                               class="flex items-center justify-center gap-4 w-full py-6 bg-green-500 text-white text-xl font-black rounded-lg shadow-xl hover:bg-green-600 transition-all">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.333 11.887-11.889 11.887-2.018 0-3.992-.511-5.741-1.486l-6.142 1.61z"/></svg>
+                                CHAT UNTUK PROMO HARI INI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        renderProducts();
+    </script>
+</body>
+</html>
