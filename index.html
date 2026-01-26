@@ -238,7 +238,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 uppercase">Wilayah Penjualan Kami</h2>
             </div>
-            <div class="mb-8 rounded-lg overflow-hidden border">
+            <div class="mb-8 rounded-lg overflow-hidden">
                 <img src="/img/map.png" alt="Peta Indonesia" class="w-full h-full object-cover">
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3" id="region-grid"></div>
@@ -306,15 +306,68 @@
     </div>
 
     <script>
-        const allProducts = [
-            { id: 1, name: "BeAT", category: "Matic", price: "Rp 18.980.000 (OTR Jakarta)", homepageImg: "/img/motorbeatdepan.webp", popupImg: "/img/motorbeat.jpeg", posterImg: "/img/motorbeatbannerpopup.webp", desc: "Mesin 160cc tangguh dengan desain premium." },
-            { id: 2, name: "ADV", category: "Matic", price: "Rp 37.265.000 (OTR Jakarta)", homepageImg: "/img/motoradvdepan.webp", popupImg: "/img/motoradv.png", posterImg: "/img/motoradvbannerpopup.webp", desc: "Ikon fashion retro modern." },
-            { id: 3, name: "VARIO 160", category: "Matic", price: "Rp 28.100.000 (OTR Jakarta)", homepageImg: "/img/motorvario160depan.webp", popupImg: "/img/motorvario160.png", posterImg: "/img/vario160bannerpopup.webp", desc: "Total Control." },
-            { id: 4, name: "SCOOPY", category: "Matic", price: "Rp 22.876.000 (OTR Jakarta)", homepageImg: "/img/motorscoopydepan.webp", popupImg: "/img/motorscoopy.png", posterImg: "/img/motorscoopybannerdepan.webp", desc: "Kemewahan berkendara." },
-            { id: 5, name: "PCX 160", category: "Matic", price: "Rp 34.350.000 (OTR Jakarta)", homepageImg: "/img/motorpcxdepan.webp", popupImg: "/img/motorpcx.png", posterImg: "/img/motorpcxbannerpopup.webp", desc: "Sport Cub dengan performa responsif." },
-            { id: 6, name: "STYLO 160", category: "Matic", price: "Rp 29.170.000 (OTR Jakarta)", homepageImg: "/img/stylo160depan.webp", popupImg: "/img/stylo160.png", posterImg: "/img/stylo160bannerpopup.webp", desc: "Partner petualangan sejati." }
+         const allProducts = [
+            { 
+                id: 1, 
+                name: "BeAT", 
+                category: "Matic", 
+                price: "Rp 18.980.000 (OTR Jakarta)", 
+                homepageImg: "/img/motorbeatdepan.webp?auto=format&fit=crop&q=80&w=800",
+                popupImg: "/img/motorbeat.jpeg?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/img/motorbeatbannerpopup.webp?auto=format&fit=crop&q=80&w=1600",
+                desc: "Mesin 160cc tangguh dengan desain premium untuk performa maksimal di perkotaan." 
+            },
+            { 
+                id: 2, 
+                name: "ADV", 
+                category: "Matic", 
+                price: "Rp 37.265.000 (OTR Jakarta)", 
+                homepageImg: "/img/motoradvdepan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/img/motoradv.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/img/motoradvbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Ikon fashion retro modern dengan Smart Key dan fungsionalitas pengisian daya USB." 
+            },
+            { 
+                id: 3, 
+                name: "VARIO 160", 
+                category: "Matic", 
+                price: "Rp 28.100.000 (OTR Jakarta)", 
+                homepageImg: "/img/motorvario160depan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/img/motorvario160.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/img/vario160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Total Control. Motor sport fairing dengan handling yang presisi." 
+            },
+            { 
+                id: 4, 
+                name: "SCOOPY", 
+                category: "Matic", 
+                price: "Rp 22.876.000 (OTR Jakarta)", 
+                homepageImg: "/img/motorscoopydepan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/img/motorscoopy.png?auto=format&fit=crop&get=80&w=1200",
+                posterImg: "/img/motorscoopybannerdepan.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Kemewahan berkendara dengan teknologi mesin eSP+ tercanggih." 
+            },
+            { 
+                id: 5, 
+                name: "PCX 160", 
+                category: "Matic", 
+                price: "Rp 34.350.000 (OTR Jakarta)", 
+                homepageImg: "/img/motorpcxdepan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/img/motorpcx.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/img/motorpcxbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Sport Cub dengan performa responsif." 
+            },
+            { 
+                id: 6, 
+                name: "STYLO 160", 
+                category: "Matic", 
+                price: "Rp 29.170.000 (OTR Jakarta)", 
+                homepageImg: "/img/stylo160depan.webp?auto=format&fit=crop&q=80&w=800", 
+                popupImg: "/img/stylo160.png?auto=format&fit=crop&q=80&w=1200",
+                posterImg: "/img/stylo160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
+                desc: "Partner petualangan sejati." 
+            }
         ];
-
         const regions = ["Aceh", "Bali", "Bangka Belitung", "Bengkulu", "DIY", "Gorontalo", "Jakarta", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Timur", "Kalimantan Utara", "Kalimantan Tengah", "Kalimantan Barat", "Maluku", "Maluku Utara", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Utara", "Sulawesi Tenggara", "Sumatera Selatan", "Sumatera Utara"];
         let currentCategory = 'All';
         let visibleCount = 3;
