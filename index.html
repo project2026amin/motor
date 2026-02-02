@@ -9,7 +9,6 @@
   <meta property="og:image" content="https://motor.nusantarasakti.site/img/promowa/imgpromowa-26jan26.jpg" />
   <meta property="og:url" content="https://motor.nusantarasakti.site" />
   <meta property="og:type" content="website" />
-
   <meta property="og:site_name" content="Motor Nusantarasakti" />
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,16 +17,23 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
         
+        /* Reset CSS paling krusial untuk menghilangkan space putih */
         html, body {
-            margin: 0;
-            padding: 0;
+            margin: 0 !important;
+            padding: 0 !important;
             width: 100%;
             height: 100%;
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            background-color: #f9fafb;
         }
 
-        /* Hero Slider dengan Rasio Tetap (Aspect Ratio) */
+        /* Menghilangkan gap di bawah elemen gambar */
+        img {
+            display: block;
+        }
+
+        /* Hero Slider dengan Rasio Tetap */
         .slider-container {
             position: relative;
             overflow: hidden;
@@ -87,7 +93,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 1px solid #e5e7eb;
             white-space: nowrap;
-            animation: fadeInRight 0.5s ease-out;
         }
 
         .wa-icon-box {
@@ -99,11 +104,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes bounce {
@@ -163,6 +163,12 @@
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Memastikan Footer Menghapus Space Putih */
+        footer {
+            margin-bottom: 0 !important;
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -188,7 +194,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-4">
-                    <img src="/img/logohondaa.png" alt="Logo Honda" class="h-8 w-auto object-contain block">
+                    <img src="/img/logohondaa.png" alt="Logo Honda" class="h-8 w-auto object-contain">
                     <div class="flex flex-col border-l pl-4 border-gray-200">
                         <span class="text-xs text-gray-500 font-bold uppercase tracking-tight">Resmi dari Dealer Nusantara Sakti</span>
                     </div>
@@ -205,9 +211,9 @@
 
     <!-- Hero Slider -->
     <section id="hero" class="slider-container bg-black">
-        <div class="slide active" style="background-image: url('/img/imgslidebesardepan1.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
-        <div class="slide" style="background-image: url('/img/imgslidebesardepan2.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
-        <div class="slide" style="background-image: url('/img/imgslidebesardepan3.jpg?auto=format&fit=crop&q=80&w=1600')"></div>
+        <div class="slide active" style="background-image: url('/img/imgslidebesardepan1.jpg')"></div>
+        <div class="slide" style="background-image: url('/img/imgslidebesardepan2.jpg')"></div>
+        <div class="slide" style="background-image: url('/img/imgslidebesardepan3.jpg')"></div>
         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="slider-dots"></div>
     </section>
 
@@ -240,7 +246,7 @@
             <div class="inline-block rounded-xl shadow-2xl overflow-hidden leading-[0]">
                 <img src="https://raw.githubusercontent.com/project2026amin/motor/refs/heads/main/img/syarat.jpg" 
                      alt="Informasi Syarat Kredit" 
-                     class="max-w-full h-auto block">
+                     class="max-w-full h-auto">
             </div>
         </div>
     </section>
@@ -252,14 +258,14 @@
                 <h2 class="text-3xl font-bold text-gray-900 uppercase">Wilayah Penjualan Kami</h2>
             </div>
             <div class="mb-8 rounded-lg overflow-hidden leading-[0]">
-                <img src="/img/map.png" alt="Peta Indonesia" class="w-full h-full object-cover block">
+                <img src="/img/map.png" alt="Peta Indonesia" class="w-full h-full object-cover">
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3" id="region-grid"></div>
         </div>
     </section>
 
-    <!-- Section Terpadu: Informasi Penting & Footer -->
-    <footer id="footer-section" class="bg-gray-900 text-white py-16 m-0 border-0">
+    <!-- Section Footer -->
+    <footer id="footer-section" class="bg-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 
@@ -268,7 +274,7 @@
                     <div class="flex items-center gap-3 mb-2">
                         <img src="https://i.postimg.cc/054mH4dR/pngtree-3d-red-alert-icon-with-exclamation-mark-in-speech-bubble-png-image-17345698.webp" 
                              alt="Peringatan Penting" 
-                             class="w-14 h-14 object-contain block">
+                             class="w-14 h-14 object-contain">
                         <h3 class="text-xl font-black uppercase tracking-wider italic text-red-500">Informasi Penting</h3>
                     </div>
                     <div class="border-l-2 border-gray-700 pl-6">
@@ -280,7 +286,7 @@
 
                 <!-- Sisi Kanan: Logo, Sosmed & Copyright -->
                 <div class="flex flex-col items-center md:items-end text-center md:text-right space-y-6">
-                    <img src="/img/logohondaa.png" alt="Logo Honda" class="h-10 w-auto brightness-0 invert block">
+                    <img src="/img/logohondaa.png" alt="Logo Honda" class="h-10 w-auto brightness-0 invert">
                     
                     <div class="flex gap-4">
                         <a href="#" class="p-3 bg-gray-800 rounded-full hover:bg-pink-600 transition shadow-lg group">
@@ -325,62 +331,63 @@
                 name: "BeAT", 
                 category: "Matic", 
                 price: "Rp 18.980.000 (OTR Jakarta)", 
-                homepageImg: "/img/motorbeatdepan.webp?auto=format&fit=crop&q=80&w=800",
-                popupImg: "/img/motorbeat.jpeg?auto=format&fit=crop&q=80&w=1200",
-                posterImg: "/img/motorbeatbannerpopup.webp?auto=format&fit=crop&q=80&w=1600",
-                desc: "Mesin 160cc tangguh dengan desain premium untuk performa maksimal di perkotaan." 
+                homepageImg: "/img/motorbeatdepan.webp",
+                popupImg: "/img/motorbeat.jpeg",
+                posterImg: "/img/motorbeatbannerpopup.webp",
+                desc: "Mesin tangguh dengan desain premium untuk performa maksimal di perkotaan." 
             },
             { 
                 id: 2, 
                 name: "ADV", 
                 category: "Matic", 
                 price: "Rp 37.265.000 (OTR Jakarta)", 
-                homepageImg: "/img/motoradvdepan.webp?auto=format&fit=crop&q=80&w=800", 
-                popupImg: "/img/motoradv.png?auto=format&fit=crop&q=80&w=1200",
-                posterImg: "/img/motoradvbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
-                desc: "Ikon fashion retro modern dengan Smart Key dan fungsionalitas pengisian daya USB." 
+                homepageImg: "/img/motoradvdepan.webp", 
+                popupImg: "/img/motoradv.png",
+                posterImg: "/img/motoradvbannerpopup.webp", 
+                desc: "Motor petualang yang siap menemani perjalanan jauh Anda dengan kenyamanan maksimal." 
             },
             { 
                 id: 3, 
                 name: "VARIO 160", 
                 category: "Matic", 
                 price: "Rp 28.100.000 (OTR Jakarta)", 
-                homepageImg: "/img/motorvario160depan.webp?auto=format&fit=crop&q=80&w=800", 
-                popupImg: "/img/motorvario160.png?auto=format&fit=crop&q=80&w=1200",
-                posterImg: "/img/vario160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
-                desc: "Total Control. Motor sport fairing dengan handling yang presisi." 
+                homepageImg: "/img/motorvario160depan.webp", 
+                popupImg: "/img/motorvario160.png",
+                posterImg: "/img/vario160bannerpopup.webp", 
+                desc: "Total Control. Motor matic bertenaga dengan handling yang presisi." 
             },
             { 
                 id: 4, 
                 name: "SCOOPY", 
                 category: "Matic", 
                 price: "Rp 22.876.000 (OTR Jakarta)", 
-                homepageImg: "/img/motorscoopydepan.webp?auto=format&fit=crop&q=80&w=800", 
-                popupImg: "/img/motorscoopy.png?auto=format&fit=crop&get=80&w=1200",
-                posterImg: "/img/motorscoopybannerdepan.webp?auto=format&fit=crop&q=80&w=1600", 
-                desc: "Kemewahan berkendara dengan teknologi mesin eSP+ tercanggih." 
+                homepageImg: "/img/motorscoopydepan.webp", 
+                popupImg: "/img/motorscoopy.png",
+                posterImg: "/img/motorscoopybannerdepan.webp", 
+                desc: "Ikon fashion retro modern dengan fitur-fitur kekinian." 
             },
             { 
                 id: 5, 
                 name: "PCX 160", 
                 category: "Matic", 
                 price: "Rp 34.350.000 (OTR Jakarta)", 
-                homepageImg: "/img/motorpcxdepan.webp?auto=format&fit=crop&q=80&w=800", 
-                popupImg: "/img/motorpcx.png?auto=format&fit=crop&q=80&w=1200",
-                posterImg: "/img/motorpcxbannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
-                desc: "Sport Cub dengan performa responsif." 
+                homepageImg: "/img/motorpcxdepan.webp", 
+                popupImg: "/img/motorpcx.png",
+                posterImg: "/img/motorpcxbannerpopup.webp", 
+                desc: "Kemewahan berkendara dengan teknologi mesin eSP+ tercanggih." 
             },
             { 
                 id: 6, 
                 name: "STYLO 160", 
                 category: "Matic", 
                 price: "Rp 29.170.000 (OTR Jakarta)", 
-                homepageImg: "/img/stylo160depan.webp?auto=format&fit=crop&q=80&w=800", 
-                popupImg: "/img/stylo160.png?auto=format&fit=crop&q=80&w=1200",
-                posterImg: "/img/stylo160bannerpopup.webp?auto=format&fit=crop&q=80&w=1600", 
-                desc: "Partner petualangan sejati." 
+                homepageImg: "/img/stylo160depan.webp", 
+                popupImg: "/img/stylo160.png",
+                posterImg: "/img/stylo160bannerpopup.webp", 
+                desc: "Gaya klasik yang tetap stylish untuk menunjang penampilan Anda." 
             }
         ];
+
         const regions = ["Aceh", "Bali", "Bangka Belitung", "Bengkulu", "DIY", "Gorontalo", "Jakarta", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Timur", "Kalimantan Utara", "Kalimantan Tengah", "Kalimantan Barat", "Maluku", "Maluku Utara", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Utara", "Sulawesi Tenggara", "Sumatera Selatan", "Sumatera Utara"];
         let currentCategory = 'All';
         let visibleCount = 3;
@@ -434,7 +441,7 @@
             
             grid.innerHTML = toShow.map(p => `
                 <div class="bg-white rounded-lg overflow-hidden group border">
-                    <img src="${p.homepageImg}" class="w-full h-64 object-cover group-hover:scale-105 transition block">
+                    <img src="${p.homepageImg}" class="w-full h-64 object-cover group-hover:scale-105 transition">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold uppercase tracking-tight">${p.name}</h3>
                         <p class="text-red-600 font-bold mb-4 text-sm">${p.price}</p>
@@ -459,14 +466,14 @@
             const p = allProducts.find(x => x.id === id);
             const modal = document.getElementById('detail-modal');
             document.getElementById('modal-content').innerHTML = `
-                <div class="w-full h-[35vh] sm:h-[60vh] md:h-[70vh] border-b"><img src="${p.posterImg}" class="w-full h-full object-cover block"></div>
+                <div class="w-full h-[35vh] sm:h-[60vh] md:h-[70vh] border-b"><img src="${p.posterImg}" class="w-full h-full object-cover"></div>
                 <div class="w-full bg-white">
                     <div class="max-w-6xl mx-auto px-4 sm:px-8 py-12">
                         <div class="text-center mb-12">
                             <h2 class="text-4xl sm:text-7xl font-black uppercase tracking-tighter text-gray-900">${p.name}</h2>
                             <p class="text-red-600 text-2xl sm:text-4xl font-bold mt-2">${p.price}</p>
                         </div>
-                        <div class="mb-16"><img src="${p.popupImg}" class="responsive-product-img rounded-lg border mx-auto block"></div>
+                        <div class="mb-16"><img src="${p.popupImg}" class="responsive-product-img rounded-lg border mx-auto"></div>
                         <div class="max-w-3xl mx-auto mb-16 px-4 text-center italic text-gray-700">"${p.desc}"</div>
                         <div class="max-w-xl mx-auto pb-16">
                             <a href="https://wa.me/6287794563599?text=Halo%20dengan%20motor%20nusantarasakti%3F%20saya%20tertarik%20dengan%20promo%20${p.name}%20hari%20ini" target="_blank" class="flex items-center justify-center gap-4 w-full py-6 bg-green-500 text-white text-xl font-black rounded-lg shadow-xl hover:bg-green-600 transition-all">
