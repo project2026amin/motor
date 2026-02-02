@@ -189,6 +189,16 @@
             margin-bottom: 0 !important;
             display: block;
         }
+
+        /* Animasi Tombol CTA Membesar Mengecil */
+        @keyframes pulse-custom {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 35px rgba(34, 197, 94, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4); }
+        }
+        .animate-pulse-custom {
+            animation: pulse-custom 2s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -273,8 +283,80 @@
             </div>
         </section>
 
+        <!-- Section Ajakan / CTA -->
+        <section id="cta-ajakan" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight">
+                        Motor Honda Impianmu, Bisa Kamu Bawa Pulang Hari Ini!
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-600 font-medium">
+                        Proses resmi dealer, pilihan lengkap, dan cicilan sesuai kemampuan. <br class="hidden md:block">
+                        Tanpa ribet, kami bantu dari awal sampai motor siap dipakai.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <!-- Keuntungan -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.postimg.cc/MpMCnRwQ/cekicon.png" class="w-6 h-6 object-contain" alt="Check">
+                            <p class="font-bold text-gray-800">Motor Honda baru & resmi dealer</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.postimg.cc/MpMCnRwQ/cekicon.png" class="w-6 h-6 object-contain" alt="Check">
+                            <p class="font-bold text-gray-800">Proses cepat, dibantu sampai selesai</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.postimg.cc/MpMCnRwQ/cekicon.png" class="w-6 h-6 object-contain" alt="Check">
+                            <p class="font-bold text-gray-800">Bisa kredit atau tunai</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.postimg.cc/MpMCnRwQ/cekicon.png" class="w-6 h-6 object-contain" alt="Check">
+                            <p class="font-bold text-gray-800">Cicilan ringan, banyak pilihan tenor</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.postimg.cc/MpMCnRwQ/cekicon.png" class="w-6 h-6 object-contain" alt="Check">
+                            <p class="font-bold text-gray-800">Melayani seluruh Indonesia</p>
+                        </div>
+                    </div>
+
+                    <!-- Kenapa Kami -->
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.postimg.cc/Ssq31vML/xicon.png" class="w-6 h-6 object-contain" alt="Cross">
+                            <p class="text-gray-600 font-medium italic">Tidak perlu keliling dealer.</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.postimg.cc/Ssq31vML/xicon.png" class="w-6 h-6 object-contain" alt="Cross">
+                            <p class="text-gray-600 font-medium italic">Tidak perlu bingung urusan kredit.</p>
+                        </div>
+                        <div class="flex items-center gap-3 mt-4 pt-2 border-t border-gray-200">
+                            <p class="text-gray-900 font-black italic">Kami urus semuanya, kamu tinggal terima kunci!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kutipan Teks Highlight (DIPERBARUI: Teks Merah, Tanpa Background) -->
+                <div class="text-center mb-16 px-4">
+                    <div class="inline-block transform hover:scale-105 transition-transform duration-300">
+                        <p class="text-red-600 font-black text-x1 md:text-3xl leading-snug uppercase italic tracking-tight">
+                            "Kami membantu kemudahan proses pembelian motor Honda baru melalui jaringan dealer resmi se-Indonesia."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tombol CTA (DIPERBARUI: Hijau WhatsApp, Tanpa Ikon) -->
+                <div class="flex justify-center">
+                    <a href="https://wa.me/6287794563599?text=Halo%20dengan%20motor%20nusantarasakti%3F%20saya%20ingin%20cek%20harga%20dan%20promo%20hari%20ini" target="_blank" class="animate-pulse-custom px-10 py-5 bg-[#25D366] text-white text-xl font-black rounded-xl transition shadow-2xl uppercase tracking-wide">
+                        Cek Harga & Promo Hari Ini!
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Section Map -->
-        <section id="map" class="py-20 bg-white">
+        <section id="map" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 uppercase">Wilayah Penjualan Kami</h2>
@@ -476,7 +558,7 @@
             if (visibleCount < filtered.length) {
                 actionContainer.innerHTML = `<button onclick="loadMoreProducts()" class="px-10 py-4 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg uppercase tracking-wider">LIHAT MOTOR LAINNYA</button>`;
             } else {
-                actionContainer.innerHTML = `<a href="https://wa.me/6287794563599?text=Halo%20dengan%20motor%20nusantarasakti%3F%20saya%20ingin%20tanya%20mengenai%20katalog%20motor%20lainnya" target="_blank" class="flex items-center justify-center gap-3 px-10 py-4 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition shadow-lg uppercase tracking-wider mx-auto max-w-max"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" class="w-6 h-6">Tanya Produk Lainnya</a>`;
+                actionContainer.innerHTML = `<a href="https://wa.me/6287794563599?text=Halo%20dengan%20motor%20nusantarasakti%3F%20saya%20ingin%20tanya%20mengenai%20katalog%20motor%20lainnya" target="_blank" class="flex items-center justify-center gap-3 px-10 py-4 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition shadow-lg uppercase tracking-wider mx-auto max-w-max">Tanya Produk Lainnya</a>`;
             }
         }
 
@@ -499,8 +581,8 @@
                         <div class="mb-16"><img src="${p.popupImg}" class="responsive-product-img rounded-lg border mx-auto"></div>
                         <div class="max-w-3xl mx-auto mb-16 px-4 text-center italic text-gray-700">"${p.desc}"</div>
                         <div class="max-w-xl mx-auto pb-16">
-                            <a href="https://wa.me/6287794563599?text=Halo%20dengan%20motor%20nusantarasakti%3F%20saya%20tertarik%20dengan%20promo%20${p.name}%20hari%20ini" target="_blank" class="flex items-center justify-center gap-4 w-full py-6 bg-green-500 text-white text-xl font-black rounded-lg shadow-xl hover:bg-green-600 transition-all">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" class="w-8 h-8">CHAT UNTUK PROMO HARI INI
+                            <a href="https://wa.me/6287794563599?text=Halo%20dengan%20motor%20nusantarasakti%3F%20saya%20tertarik%20dengan%20promo%20${p.name}%20hari%20ini" target="_blank" class="flex items-center justify-center gap-4 w-full py-6 bg-[#25D366] text-white text-xl font-black rounded-lg shadow-xl hover:bg-[#128C7E] transition-all">
+                                CHAT UNTUK PROMO HARI INI
                             </a>
                         </div>
                     </div>
